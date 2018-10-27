@@ -1,13 +1,24 @@
 # class osquery::config - manage json config in /etc/osquery
-class osquery::config {
+class osquery::config (
 
-  file { $::osquery::params::config:
+  $format = 'pretty'
+
+){
+  include '::stdlib'
+
+  file { $::osquery::config:
     ensure  => present,
-    owner   => root,
-    group   => root,
-    content => sorted_json($::osquery::settings), # array to JSON lib
-    require => Package[$::osquery::params::package_name],
-    notify  => Service[$::osquery::params::service_name],
+    content => osquery_sorted_json($::osquery::settings, $format), # format as JSON
+    owner   => $::osquery::config_user,
+    group   => $::osquery::config_group,
+    require => Package[$::osquery::package_name],
+    notify  => Service[$::osquery::service_name],
   }
 
+  if has_key($::osquery::settings, 'packs') {
+    $packs = keys($::osquery::settings['packs'])
+    osquery::pack { $packs:
+      format => $format,
+    }
+  }
 }
