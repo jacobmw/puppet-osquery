@@ -8,22 +8,22 @@ class osquery::config (
 
   if $format != 'pretty' {
     file { $::osquery::config:
-    ensure => present,
+    ensure  => present,
     content => to_json($::osquery::settings), # format as JSON
-    owner => $::osquery::config_user,
-    group => $::osquery::config_group,
+    owner   => $::osquery::config_user,
+    group   => $::osquery::config_group,
     require => Package[$::osquery::package_name],
-    notify => Service[$::osquery::service_name],
+    notify  => Service[$::osquery::service_name],
     }
   }
   else {
     file { $::osquery::config:
-    ensure => present,
+    ensure  => present,
     content => to_json_pretty($::osquery::settings), # format as JSON
-    owner => $::osquery::config_user,
-    group => $::osquery::config_group,
+    owner   => $::osquery::config_user,
+    group   => $::osquery::config_group,
     require => Package[$::osquery::package_name],
-    notify => Service[$::osquery::service_name],
+    notify  => Service[$::osquery::service_name],
     }
   }
 
