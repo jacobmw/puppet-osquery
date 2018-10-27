@@ -1,20 +1,24 @@
 require 'spec_helper'
 
-describe 'osquery', :type => :class do
-
-  describe "class on Redhat 6 family with no parameters, basic test" do
+describe 'osquery', type: :class do
+  describe 'class on Redhat 6 family with no parameters, basic test' do
     let :facts do
       {
-        :osfamily => 'RedHat',
-        :operatingsystem => 'Redhat',
-        :operatingsystemmajrelease => '6',
-        :architecture => 'x86_64',
-        :processorcount => '2',
-        :kernel => 'Linux'
+        osfamily: 'RedHat',
+        operatingsystem: 'Redhat',
+        operatingsystemmajrelease: '6',
+        architecture: 'x86_64',
+        processorcount: '2',
+        kernel: 'Linux',
+        os: {
+          release: {
+            major: '6',
+          },
+        },
       }
     end
 
-    context "expected results" do
+    context 'expected results' do
       it { is_expected.to compile.with_all_deps }
       it { is_expected.to contain_class('osquery') }
       it { is_expected.to contain_class('osquery::params') }
@@ -27,19 +31,24 @@ describe 'osquery', :type => :class do
     end
   end
 
-  describe "class on Redhat 7 family with no parameters, basic test" do
+  describe 'class on Redhat 7 family with no parameters, basic test' do
     let :facts do
       {
-        :osfamily => 'RedHat',
-        :operatingsystem => 'Redhat',
-        :operatingsystemmajrelease => '7',
-        :architecture => 'x86_64',
-        :processorcount => '2',
-        :kernel => 'Linux'
+        osfamily: 'RedHat',
+        operatingsystem: 'Redhat',
+        operatingsystemmajrelease: '7',
+        architecture: 'x86_64',
+        processorcount: '2',
+        kernel: 'Linux',
+        os: {
+          release: {
+            major: '7',
+          },
+        },
       }
     end
 
-    context "expected results" do
+    context 'expected results' do
       it { is_expected.to compile.with_all_deps }
       it { is_expected.to contain_class('osquery') }
       it { is_expected.to contain_class('osquery::params') }
@@ -52,19 +61,24 @@ describe 'osquery', :type => :class do
     end
   end
 
-  describe "class on CentOS 6 family with no parameters, basic test" do
+  describe 'class on CentOS 6 family with no parameters, basic test' do
     let :facts do
       {
-        :osfamily => 'RedHat',
-        :operatingsystem => 'CentOS',
-        :operatingsystemmajrelease => '6',
-        :architecture => 'x86_64',
-        :processorcount => '2',
-        :kernel => 'Linux'
+        osfamily: 'RedHat',
+        operatingsystem: 'CentOS',
+        operatingsystemmajrelease: '6',
+        architecture: 'x86_64',
+        processorcount: '2',
+        kernel: 'Linux',
+        os: {
+          release: {
+            major: '6',
+          },
+        },
       }
     end
 
-    context "expected results" do
+    context 'expected results' do
       it { is_expected.to compile.with_all_deps }
       it { is_expected.to contain_class('osquery') }
       it { is_expected.to contain_class('osquery::params') }
@@ -77,19 +91,24 @@ describe 'osquery', :type => :class do
     end
   end
 
-  describe "class on CentOS 7 family with no parameters, basic test" do
+  describe 'class on CentOS 7 family with no parameters, basic test' do
     let :facts do
       {
-        :osfamily => 'RedHat',
-        :operatingsystem => 'CentOS',
-        :operatingsystemmajrelease => '7',
-        :architecture => 'x86_64',
-        :processorcount => '2',
-        :kernel => 'Linux'
+        osfamily: 'RedHat',
+        operatingsystem: 'CentOS',
+        operatingsystemmajrelease: '7',
+        architecture: 'x86_64',
+        processorcount: '2',
+        kernel: 'Linux',
+        os: {
+          release: {
+            major: '7',
+          },
+        },
       }
     end
 
-    context "expected results" do
+    context 'expected results' do
       it { is_expected.to compile.with_all_deps }
       it { is_expected.to contain_class('osquery') }
       it { is_expected.to contain_class('osquery::params') }
@@ -102,19 +121,24 @@ describe 'osquery', :type => :class do
     end
   end
 
-  describe "class on Scientific linux family with no parameters, basic test" do
+  describe 'class on Scientific linux family with no parameters, basic test' do
     let :facts do
       {
-        :osfamily => 'RedHat',
-        :operatingsystem => 'Scientific',
-        :operatingsystemmajrelease => '6',
-        :architecture => 'x86_64',
-        :processorcount => '2',
-        :kernel => 'Linux'
+        osfamily: 'RedHat',
+        operatingsystem: 'Scientific',
+        operatingsystemmajrelease: '6',
+        architecture: 'x86_64',
+        processorcount: '2',
+        kernel: 'Linux',
+        os: {
+          release: {
+            major: '6',
+          },
+        },
       }
     end
 
-    context "expected results" do
+    context 'expected results' do
       it { is_expected.to compile.with_all_deps }
       it { is_expected.to contain_class('osquery') }
       it { is_expected.to contain_class('osquery::params') }
@@ -127,19 +151,24 @@ describe 'osquery', :type => :class do
     end
   end
 
-  describe "class on Amazon linux family with no parameters, basic test" do
+  describe 'class on Amazon linux family with no parameters, basic test' do
     let :facts do
       {
-        :osfamily => 'RedHat',
-        :operatingsystem => 'Amazon',
-        :operatingsystemmajrelease => '6',
-        :architecture => 'x86_64',
-        :processorcount => '2',
-        :kernel => 'Linux'
+        osfamily: 'RedHat',
+        operatingsystem: 'Amazon',
+        operatingsystemmajrelease: '6',
+        architecture: 'x86_64',
+        processorcount: '2',
+        kernel: 'Linux',
+        os: {
+          release: {
+            major: '6',
+          },
+        },
       }
     end
 
-    context "expected results" do
+    context 'expected results' do
       it { is_expected.to compile.with_all_deps }
       it { is_expected.to contain_class('osquery') }
       it { is_expected.to contain_class('osquery::params') }
@@ -156,16 +185,15 @@ describe 'osquery', :type => :class do
     describe 'osquery class without any parameters on Solaris/Nexenta' do
       let(:facts) do
         {
-          :operatingsystem => 'Nexenta',
-          :operatingsystemmajrelease => '6',
-          :architecture => 'x86_64',
-          :processorcount => '2',
-          :kernel => 'Solaris'
+          operatingsystem: 'Nexenta',
+          operatingsystemmajrelease: '6',
+          architecture: 'x86_64',
+          processorcount: '2',
+          kernel: 'Solaris',
         }
       end
 
-      it { expect { is_expected.to contain_package('osquery') }.to raise_error(Puppet::Error, /Unsupported platform: Nexenta/) }
+      it { expect { is_expected.to contain_package('osquery') }.to raise_error(Puppet::Error, %r{Unsupported platform: Nexenta}) }
     end
   end
-
 end
