@@ -19,7 +19,7 @@ class osquery::config (
   else {
     file { $::osquery::config:
     ensure  => present,
-    content => to_json_pretty($::osquery::settings), # format as JSON
+    content => to_json($::osquery::settings), # format as JSON
     owner   => $::osquery::config_user,
     group   => $::osquery::config_group,
     require => Package[$::osquery::package_name],
